@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\User\GetUser\" />
     <Folder Include="Frontend\" />
   </ItemGroup>
 

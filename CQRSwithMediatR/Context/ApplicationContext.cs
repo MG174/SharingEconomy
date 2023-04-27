@@ -7,14 +7,15 @@ namespace CQRSwithMediatR.Context
 	public class ApplicationContext : DbContext, IApplicationContext
 	{
 		public DbSet<Book> Books { get; set; }
+		public DbSet<User> User { get; set; }
+		public DbSet<Advertisment> Advertisment { get; set; }
+		public DbSet<Booking> Booking { get; set; }
 
 		public ApplicationContext(DbContextOptions<ApplicationContext> options): base(options)
 		{
 
 		}
 
-		// W naszym przykładowym API trzymamy się konwencji
-		// ze zdefiniowaniem connection-string w metodzie OnConfiguring
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			if (!optionsBuilder.IsConfigured)
