@@ -9,6 +9,5 @@
 		public User UserBookedById { get; set; }
 
 		public string BookedTime { get; set; }
-
 	}
 }

@@ -3,14 +3,16 @@ using System;
 using CQRSwithMediatR.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CQRSwithMediatR.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230430092338_add-available-field")]
+    partial class addavailablefield
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,6 @@ namespace CQRSwithMediatR.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CreatedTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CurrentLocation")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")

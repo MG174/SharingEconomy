@@ -11,5 +11,9 @@
 		public string CreatedTime { get; set; }
 
 		public User CreatedBy { get; set; }
+
+		public bool Available { get; set; }
+
+		public string CurrentLocation { get; set; }
 	}
 }
