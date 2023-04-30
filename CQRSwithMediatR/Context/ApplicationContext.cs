@@ -27,5 +27,15 @@ namespace CQRSwithMediatR.Context
 		{
 			return await base.SaveChangesAsync();
 		}
+
+		public async void BeginTransaction()
+		{
+			await base.Database.BeginTransactionAsync();
+		}
+
+		public async void CommitTransaction()
+		{
+			await base.Database.CommitTransactionAsync();
+		}
 	}
 }

@@ -12,5 +12,7 @@ namespace CQRSwithMediatR.Context
 		DbSet<Booking> Booking { get; set; }
 
 		Task<int> SaveChangesAsync();
+		void BeginTransaction();
+		void CommitTransaction();
 	}
 }
