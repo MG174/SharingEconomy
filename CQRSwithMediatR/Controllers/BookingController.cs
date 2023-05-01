@@ -1,4 +1,5 @@
 ﻿using CQRSwithMediatR.Features.Booking.AddNewBooking;
+using CQRSwithMediatR.Features.Booking.GetAllBookings;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,8 +17,14 @@ namespace CQRSwithMediatR.Controllers
 			_mediator = mediator;
 		}
 
-		[HttpPost(Name = "AddBooking")]
+		[HttpPost("AddBooking")]
 		public async Task<IActionResult> AddBooking(AddNewBookingRequest request)
+		{
+			return Ok(await _mediator.Send(request));
+		}
+
+		[HttpPost("GetAllBookingsRequest")]
+		public async Task<IActionResult> GetAllBookings(GetAllBookingsRequest request)
 		{
 			return Ok(await _mediator.Send(request));
 		}
