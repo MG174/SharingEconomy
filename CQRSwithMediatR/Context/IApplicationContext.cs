@@ -9,6 +9,7 @@ namespace CQRSwithMediatR.Context
 		DbSet<User> User { get; set; }
 		DbSet<Advertisment> Advertisment { get; set; }
 		DbSet<Booking> Booking { get; set; }
+		DbSet<Review> Review { get; set; }
 
 		Task<int> SaveChangesAsync();
 		void BeginTransaction();

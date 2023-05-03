@@ -4,9 +4,9 @@
 	{
 		public int BookingId { get; set; }
 
-		public Advertisment AdvertismentBookedId { get; set; } = new Advertisment();
+		public Advertisment AdvertismentBookedId { get; set; }
 
-		public User UserBookedById { get; set; } = new User();
+		public User UserBookedById { get; set; }
 
 		public string BookedTime { get; set; }
 	}

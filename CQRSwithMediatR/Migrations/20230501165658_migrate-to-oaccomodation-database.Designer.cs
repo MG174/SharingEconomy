@@ -3,14 +3,16 @@ using System;
 using CQRSwithMediatR.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CQRSwithMediatR.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230501165658_migrate-to-oaccomodation-database")]
+    partial class migratetooaccomodationdatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,39 +70,6 @@ namespace CQRSwithMediatR.Migrations
                     b.ToTable("Booking");
                 });
 
-            modelBuilder.Entity("CQRSwithMediatR.Models.Review", b =>
-                {
-                    b.Property<int>("ReviewId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("BookingRelatedToIdBookingId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("CreatedByUserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("CreatedTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ReviewId");
-
-                    b.HasIndex("BookingRelatedToIdBookingId");
-
-                    b.HasIndex("CreatedByUserId");
-
-                    b.ToTable("Review");
-                });
-
             modelBuilder.Entity("CQRSwithMediatR.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -143,21 +112,6 @@ namespace CQRSwithMediatR.Migrations
                     b.Navigation("AdvertismentBookedId");
 
                     b.Navigation("UserBookedById");
-                });
-
-            modelBuilder.Entity("CQRSwithMediatR.Models.Review", b =>
-                {
-                    b.HasOne("CQRSwithMediatR.Models.Booking", "BookingRelatedToId")
-                        .WithMany()
-                        .HasForeignKey("BookingRelatedToIdBookingId");
-
-                    b.HasOne("CQRSwithMediatR.Models.User", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedByUserId");
-
-                    b.Navigation("BookingRelatedToId");
-
-                    b.Navigation("CreatedBy");
                 });
 #pragma warning restore 612, 618
         }
